@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         noteList = db.getAllNotes();
         sum = db.getSum();
-        txtSum.setText("Obshiy: "+sum);
+        txtSum.setText("Sum: "+sum);
 
         for(Note n : noteList){
             String s = ""+n.getContent() + " - " + n.getAmount();
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 noteArrayList.remove(i);
                 arrayAdapter.notifyDataSetChanged();
                 sum -= note.getAmount();
-                txtSum.setText("Obshiy: "+sum);
+                txtSum.setText("Sum: "+sum);
 
                 Toast.makeText(this, note.getContent(), Toast.LENGTH_SHORT).show();
             }
@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             noteArrayList.clear();
             arrayAdapter.notifyDataSetChanged();
             sum = 0;
-            txtSum.setText("Obshiy: "+sum);        }
+            txtSum.setText("Sum: "+sum);        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                 text +=s;
                 text +="\n";
             }
-            text += "    Obshiy: " + sum;
+            text += "    Sum: " + sum;
             setClipboard(this, text);
 
             Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
                 noteArrayList.remove(i);
                 arrayAdapter.notifyDataSetChanged();
                 sum -= note.getAmount();
-                txtSum.setText("Obshiy: "+sum);
+                txtSum.setText("Sum: "+sum);
 
                 db.delete(note);
                 noteList.remove(i);
